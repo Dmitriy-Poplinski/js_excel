@@ -63,7 +63,8 @@ module.exports = {
             ],
         }),
         new MiniCssExtractPlugin({
-            filename: filename('css')
+            filename: filename('css'),
+            runtime: true
         })
     ],
     module: {
@@ -71,13 +72,7 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDev,
-                            reloadAll: true
-                        }
-                    },
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader',
                 ],
