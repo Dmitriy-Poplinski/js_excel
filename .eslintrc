@@ -1,0 +1,25 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "no-console": "warn",
+        "quotes": ["error", "single"],
+        "jsx-quotes": ["error", "prefer-double"],
+        "prefer-const": "error",
+        "indent": ["warn", 4],
+        "max-len": ["error", {"code": 120}],
+        "semi": ["warn", "always"]
+        // "import/order": ["warn", {
+        //     "groups": [
+        //         "builtin", "external", "internal", 
+        //         "parent", "sibling", "index", 
+        //         "object", "type"
+        //     ],
+        //     "newlines-between": "always-and-inside-groups"
+        // }]
+    }
+}
