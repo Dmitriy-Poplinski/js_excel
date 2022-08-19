@@ -19,7 +19,10 @@ export class Formula extends ExcelComponent {
     };
 
     onInput(event) {
-        console.log($root);
         console.log('yes', event.target.textContent.trim());
     };
+
+    onClick(event) {
+        console.log('mk');
+    }
 };
