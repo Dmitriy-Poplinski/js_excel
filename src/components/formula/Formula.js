@@ -18,7 +18,8 @@ export class Formula extends ExcelComponent {
         `;
     };
 
-    onInput() {
-        
+    onInput(event) {
+        console.log($root);
+        console.log('yes', event.target.textContent.trim());
     };
 };
