@@ -10,10 +10,13 @@ import { TableSelection } from './TableSelection';
 export class Table extends ExcelComponent {
     static className = 'excel__table';
 
-    constructor($root) {
+    constructor($root, options) {
         super($root, {
-            listeners: ['mousedown', 'keydown']
+            name: 'Table',
+            listeners: ['mousedown', 'keydown'],
+            ...options
         });
+        this.unsubs = [];
     };
 
     toHTML() {
@@ -29,6 +32,11 @@ export class Table extends ExcelComponent {
         
         const $cell = this.$root.find('[data-id="0:0"]');
         this.selection.select($cell);
+
+        const unsub = this.$on('formula:input', text => {
+            this.selection.current.text(text);
+        });
+        this.unsubs.push(unsub);
     };
 
     onMousedown(event) {
@@ -65,4 +73,6 @@ export class Table extends ExcelComponent {
             this.selection.select($next);
         };
     };
+
+    
 };
