@@ -23,21 +23,3 @@ export class Emitter {
         };
     };
 };
-
-// const emitter = new Emitter();
-
-// const unsub = emitter.subscribe('dmytro', data => console.log('SUB: ', data));
-
-// emitter.emit('dmytro', 42);
-
-// setTimeout(() => {
-//     emitter.emit('dmytro', 'After 2 sec');
-// }, 2000);
-
-// setTimeout(() => {
-//     emitter.emit('dmytro', 'After 4 sec');
-// }, 4000);
-
-// setTimeout(() => {
-//     unsub();
-// }, 3000);
