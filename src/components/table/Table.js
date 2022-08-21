@@ -22,7 +22,7 @@ export class Table extends ExcelComponent {
     };
 
     toHTML() {
-        return createTable(100, this.store.getState());
+        return createTable(20, this.store.getState());
     };
 
     prepare() {
@@ -44,14 +44,20 @@ export class Table extends ExcelComponent {
             this.selection.current.focus();
         });
 
-        this.$on('toolbar:applyStyle', style => {
-            this.selection.applyStyle(style);
+        this.$on('toolbar:applyStyle', value => {
+            this.selection.applyStyle(value);
+            this.$dispatch(actions.applyStyle({
+                value,
+                ids: this.selection.selectedIds
+            }));
         });
     };
 
     selectCell($cell) {
         this.selection.select($cell);
         this.$emit('table:select', $cell);
+        const styles = $cell.getStyles(Object.keys(defaultStyles));
+        this.$dispatch(actions.changeStyles(styles));
     };
 
     async resizeTable(event) {
@@ -60,7 +66,7 @@ export class Table extends ExcelComponent {
             this.$dispatch(actions.tableResize(data));
         } catch (e) {
             // eslint-disable-next-line no-console
-            console.warn('Resize error', e);
+            console.warn('Resize error', e.message);
         }
     };
 
@@ -70,9 +76,9 @@ export class Table extends ExcelComponent {
         } else if (isCell(event)) {
             const $target = $(event.target);
             if (event.shiftKey) {
-                const $cells = matrix($target, this.selection.current).map(id => this.$root.find(`[data-id="${id}"]`));
+                const $cells = matrix($target, this.selection.current)
+                    .map(id => this.$root.find(`[data-id="${id}"]`));
                 this.selection.selectGroup($cells);
-                
             } else {
                 this.selectCell($target);
             };
@@ -107,7 +113,6 @@ export class Table extends ExcelComponent {
     };
 
     onInput(event) {
-        // this.$emit('table:input', $(event.target));
         this.updateTextInStore($(event.target).text());
     };
 };

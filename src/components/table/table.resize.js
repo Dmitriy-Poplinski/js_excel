@@ -21,7 +21,7 @@ export function resizeHandler($root, event) {
                 $resizer.css({right: -delta + 'px'});
             } else {
                 const delta = e.pageY - coords.bottom;
-                value =  coords.height + delta;
+                value = coords.height + delta;
                 $resizer.css({bottom: -delta + 'px'});
             }
         };

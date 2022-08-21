@@ -32,7 +32,7 @@ export class ExcelComponent extends DomListener {
     };
 
     storeChanged() {
-
+        
     };
 
     isWatching(key) {
