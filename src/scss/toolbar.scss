@@ -14,5 +14,9 @@
 
     .button {
         @include button(red);
+
+        &.active {
+            color: green;
+        }
     }
 }
