@@ -2,12 +2,14 @@ import { TABLE_RESIZE } from './types';
 
 export function rootReducer(state, action) {
     /* eslint-disable indent */
+    let field;
     let prevState;
     switch (action.type) {
         case TABLE_RESIZE:
+            field = action.data.type === 'col' ? 'colState' : 'rowState';
             prevState = state.colState || {};
             prevState[action.data.id] = action.data.value;
-            return {...state, colState: prevState};
+            return {...state, [field]: prevState};
         default:
             return state;
     };

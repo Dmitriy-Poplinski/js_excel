@@ -9,9 +9,10 @@ import { Formula } from '@/components/formula/Formula';
 import { Table } from '@/components/table/Table';
 
 import '@/scss/index.scss';
+import { initialState } from '@/redux/initialState';
 
 
-const store = createStore(rootReducer, storage('excel-state'));
+const store = createStore(rootReducer, initialState);
 
 store.subscribe(state => {
     console.log('App subscribe', state);
