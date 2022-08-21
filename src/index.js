@@ -9,7 +9,9 @@ import { Table } from '@/components/table/Table';
 
 import '@/scss/index.scss';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, {
+    tableTitle: 'My Table'
+});
 
 const excel = new Excel('#app', {
     components: [Header, Toolbar, Formula, Table],
