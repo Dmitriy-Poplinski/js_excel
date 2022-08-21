@@ -10,7 +10,7 @@ import { Table } from '@/components/table/Table';
 import '@/scss/index.scss';
 
 const store = createStore(rootReducer, {
-    tableTitle: 'My Table'
+    colState: {}
 });
 
 const excel = new Excel('#app', {
