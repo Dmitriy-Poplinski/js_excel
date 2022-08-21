@@ -12,8 +12,6 @@ import { Table } from '@/components/table/Table';
 
 import '@/scss/index.scss';
 
-
-
 const store = createStore(rootReducer, initialState);
 
 const stateListener = debounce(state => {
