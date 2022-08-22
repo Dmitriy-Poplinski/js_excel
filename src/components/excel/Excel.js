@@ -15,7 +15,6 @@ export class Excel {
 
     getRoot() {
         const $root = $.create('div', 'excel');
-
         const componentOptions = {
             emitter: this.emitter,
             store: this.store
