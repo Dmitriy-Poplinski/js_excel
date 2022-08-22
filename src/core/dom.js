@@ -45,6 +45,7 @@ class Dom {
         if (node instanceof Dom) {
             node = node.$el;
         };
+        debugger;
         if (Element.prototype.append) {
             this.$el.append(node);
         } else {
