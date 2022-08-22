@@ -51,6 +51,7 @@
     "@babel/polyfill": "^7.12.1",
     "eslint-plugin-jest": "^26.8.7",
     "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
     "normalize.css": "^8.0.1"
   }
 }
