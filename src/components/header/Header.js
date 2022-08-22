@@ -42,7 +42,6 @@ export class Header extends ExcelComponent {
     };
 
     onClick(event) {
-        console.log('yes');
         const $target = $(event.target);
 
         if ($target.data.button === 'remove') {
