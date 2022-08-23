@@ -45,11 +45,11 @@ export function rootReducer(state, action) {
             return {...state, openedDate: new Date().toJSON()};
         default:
             return state;
-    };
-};
+    }
+}
 
 function value(state, field, action) {
     const val = state[field] || {};
     val[action.data.id] = action.data.value;
     return val;
-};
+}

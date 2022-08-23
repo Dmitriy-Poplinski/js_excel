@@ -16,11 +16,11 @@ export class Header extends ExcelComponent {
             listeners: ['input', 'click'],
             ...options
         });
-    };
+    }
 
     prepare() {
         this.onInput = debounce(this.onInput, 300);
-    };
+    }
 
     toHTML() {
         const title = this.store.getState().title || defaultTitle;
@@ -45,18 +45,19 @@ export class Header extends ExcelComponent {
         const $target = $(event.target);
 
         if ($target.data.button === 'remove') {
-            const decision = confirm('Ви дійсно хочете видалити цю таблицю');
+            const decision = confirm('Ви дійсно хочете видалити цю таблицю?');
+
             if (decision) {
                 localStorage.removeItem(`excel:${ActiveRoute.param}`);
                 ActiveRoute.navigate('');
             }
         } else if ($target.data.button === 'exit') {
             ActiveRoute.navigate('');
-        };
-    };
+        }
+    }
 
     onInput(event) {
         const $target = $(event.target);
         this.$dispatch(actions.changeTitle($target.text()));
     }
-};
+}

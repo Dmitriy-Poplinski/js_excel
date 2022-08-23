@@ -5,7 +5,7 @@ export class StoreSubscriber {
         this.store = store;
         this.sub = null;
         this.prevState = {};
-    };
+    }
 
     subscribeComponents(components) {
         this.prevState = this.store.getState();
@@ -19,16 +19,18 @@ export class StoreSubscriber {
                             component.storeChanged(changes);
                         }
                     });
-                };
+                }
             });
+
             this.prevState = this.store.getState();
+
             if (process.env.NODE_ENV === 'development') {
                 window['redux'] = this.prevState;
-            };
+            }
         });
-    };
+    }
 
     unsubscribeFromStore() {
         this.sub.unsubscribe();
-    };
-};
+    }
+}

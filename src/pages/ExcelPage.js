@@ -21,7 +21,7 @@ export class ExcelPage extends Page {
         this.processor = new StateProcessor(
             new LocalStorageClient(this.params)
         );
-    };
+    }
 
     async getRoot() {
         const state = await this.processor.get();
@@ -36,14 +36,14 @@ export class ExcelPage extends Page {
         });
 
         return this.excel.getRoot();
-    };
+    }
 
     afterRender() {
         this.excel.init();
-    };
+    }
 
     destroy() {
         this.excel.destroy();
         this.storeSub.unsubscribe();
-    };
-};
+    }
+}

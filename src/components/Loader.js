@@ -17,4 +17,4 @@ export function Loader() {
             <div></div>
         </div>
     `);
-};
+}

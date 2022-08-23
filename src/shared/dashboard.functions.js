@@ -12,7 +12,7 @@ function toHTML(key) {
             </strong>
         </li>
     `;
-};
+}
 
 function getAllKeys() {
     const keys = [];
@@ -20,14 +20,15 @@ function getAllKeys() {
         const key = localStorage.key(i);
         if (!key.includes('excel')) {
             continue;
-        };
+        }
         keys.push(key);
-    };
+    }
     return keys;
-};
+}
 
 export function createRecordsTable() {
     const keys = getAllKeys();
+
     if (!keys.length) {
         return '<p>Ви поки що не створили жодної таблиці</p>';
     }
@@ -37,8 +38,9 @@ export function createRecordsTable() {
             <span>Назва</span>
             <span>Дата відкриття</span>
         </div>
+
         <ul class="db__list">
             ${ keys.map(toHTML).join('') }
         </ul>
     `;
-};
+}

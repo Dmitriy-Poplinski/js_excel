@@ -3,6 +3,7 @@ function toButton(button) {
         data-type="button"
         data-value='${JSON.stringify(button.value)}'
     `;
+    
     return `
     <div 
         class="button ${button.active ? 'active' : ''}"
@@ -16,7 +17,7 @@ function toButton(button) {
         </span>
     </div>
     `;
-};
+}
 
 export function createToolbar(state) {
     const buttons = [
@@ -36,9 +37,9 @@ export function createToolbar(state) {
             active: state['textAlign'] === 'right'
         },
         {
+            value: {fontWeight: state['fontWeight'] === 'bold' ? 'normal' : 'bold'},
             icon: 'format_bold',
             active: state['fontWeight'] === 'bold',
-            value: {fontWeight: state['fontWeight'] === 'bold' ? 'normal' : 'bold'}
         },
         {
             value: {fontStyle: state['fontStyle'] === 'italic' ? 'normal' : 'italic'},
@@ -54,4 +55,4 @@ export function createToolbar(state) {
     ];
 
     return buttons.map(toButton).join('');
-};
+}

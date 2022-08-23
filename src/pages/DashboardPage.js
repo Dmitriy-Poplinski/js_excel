@@ -21,5 +21,5 @@ export class DashboardPage extends Page {
                 ${ createRecordsTable() }
             </div>
         `);
-    };
-};
+    }
+}
